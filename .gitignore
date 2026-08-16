@@ -1,0 +1,28 @@
+# Python Virtual Environment
+venv/
+env/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+
+# Large datasets & binaries
+data/processed/*.bin
+data/raw/*.parquet
+*.tar.gz
+*.zip
+
+# Large model binaries (>100MB for GitHub limits)
+*.gguf
+checkpoints/tamil_qwen_1.5b_fused/
+checkpoints/pretrain/*.pt
+checkpoints/sft/*.pt
+checkpoints/exported/
+checkpoints/mlx_adapters/0000*.safetensors
+
+# Preserve lightweight final LoRA adapter & Tokenizers
+!checkpoints/mlx_adapters/adapter_config.json
+!checkpoints/mlx_adapters/adapters.safetensors
+!checkpoints/tokenizer/
+!checkpoints/tokenizer/*
