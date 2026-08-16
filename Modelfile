@@ -1,0 +1,16 @@
+# Ollama Modelfile for Tamil Qwen 1.5B Instruct (GGUF)
+FROM ./checkpoints/tamil_qwen_1.5b_instruct_q8_0.gguf
+
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+{{ .Response }}<|im_end|>"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+
+SYSTEM """நீங்கள் ஒரு தமிழ் செயற்கை நுண்ணறிவு உதவியாளர். கேட்கப்படும் கேள்விகளுக்குத் துல்லியமாகவும் அழகாகவும் தமிழில் பதிலளிக்கவும்."""
